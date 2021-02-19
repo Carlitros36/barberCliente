@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">
+            <h3>Inventario <button class="btn btn-warning" routerLink="/addinventario">Nuevo</button></h3> 
+        </div>
+        <div class="body">
+            <table class="table table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>EXISTENCIAS</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let material of inventario | paginate: { itemsPerPage: 5, currentPage: page }" class="text-center">
+                        <td>{{material.id}}</td>
+                        <td>{{material.nombre}}</td>
+                        <td>{{material.existencias}}</td>
+                        <td>
+                            <button (click)="Editar(material)" class="btn btn-warning">Editar</button>
+                            <button (click)="Delete(material)" class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls 
+            (pageChange)="page = $event"
+            previousLabel="Anterior"
+            nextLabel="Siguiente"
+            ></pagination-controls>
+        </div>
+    </div>
+</div>

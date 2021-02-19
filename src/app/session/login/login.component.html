@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="card-header text-center">
+        <h1>INICIAR SESIÓN</h1>
+    </div>
+</div>
+
+
+<form [formGroup]="formularioLogin" (ngSubmit)="onSubmit()" novalidate class="centrar">
+    <label>Usuario</label>
+    <input autofocus [class.is-invalid]="formularioLogin.get('login')!.touched && formularioLogin.get('login')!.invalid"
+        type="text" formControlName="login">
+    <br />
+    <div
+        *ngIf="!formularioLogin.get('login')?.valid && (formularioLogin.get('login')?.dirty ||formularioLogin.get('login')?.touched)">
+        <div [hidden]="!formularioLogin.get('login')!.errors!.required"> El nombre de usuario es obligatorio </div>
+        <div [hidden]="!formularioLogin.get('login')!.errors!.minlength"> La longitud mínima es 6 </div>
+    </div>
+    <label>Password</label>
+    <input [class.is-invalid]="formularioLogin.get('password')!.touched && formularioLogin.get('password')!.invalid"
+        type="password" formControlName="password"><br />
+    <br />
+    <div
+        *ngIf="!formularioLogin.get('password')?.valid && (formularioLogin.get('password')?.dirty ||formularioLogin.get('password')?.touched)">
+        <div [hidden]="!formularioLogin.get('password')!.errors!.required"> El password es obligatorio </div>
+        <div [hidden]="!formularioLogin.get('password')!.errors!.minlength"> La longitud mínima es 6 </div>
+    </div>
+    <br />
+    <button class="btn btn-info" type="submit">Iniciar sesion</button>
+</form>
