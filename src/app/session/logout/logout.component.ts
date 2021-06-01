@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IUsuario, Usuario } from 'src/app/Modelo/Usuario';
+import { HelperService } from '../helper.service';
 import { SessionService } from '../service/session.service';
 
 
@@ -17,8 +18,10 @@ export class LogoutComponent implements OnInit {
 
   sesion:Usuario;
 
- 
+  message: any;
+  editMessage: boolean= false;
   constructor(
+    private helper:HelperService,
     private oRoute: ActivatedRoute,
     private oRouter: Router,
     private oSessionService: SessionService) {
@@ -41,6 +44,7 @@ export class LogoutComponent implements OnInit {
 
   public closeSession() {
     this.oSessionService.logout().subscribe(data => {
+      this.helper.changeMessage(this.editMessage);
       this.oRouter.navigate(['/login']);
     });
   }

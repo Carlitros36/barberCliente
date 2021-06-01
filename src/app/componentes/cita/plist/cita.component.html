@@ -1,22 +1,22 @@
 <div class="container">
     <div class="card">
         <div class="card-header text-center">
-            <h3>Citas</h3> 
+            <h3>Citas</h3><button class="btn btn-warning" routerLink="/addcita" (click)="crearCita(citas)">Reservar Cita</button> 
         </div>
         <div class="body">
             <table class="table table-hover text-center">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>FECHA</th>
                         <th>USUARIO</th>
+                        <th>FECHA</th>
+                        <th>HORA</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let cita of citas | paginate: { itemsPerPage: 5, currentPage: page }" class="text-center">
-                        <td>{{cita.id}}</td>
-                        <td>{{cita.fecha}}</td>
                         <td>{{cita.usuario.nombre}} {{cita.usuario.apellido1}}</td>
+                        <td>{{cita.fecha}}</td>
+                        <td>{{cita.hora}}</td>
                     </tr>
                 </tbody>
             </table>

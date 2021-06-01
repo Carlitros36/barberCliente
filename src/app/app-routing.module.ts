@@ -13,11 +13,13 @@ import { LogoutComponent } from './session/logout/logout.component'
 import { SessionResolver } from './resolve/session.resolve';
 import { AddinventarioComponent } from './componentes/inventario/add/addinventario.component';
 import { EditComponent } from './componentes/inventario/edit/edit.component';
+import { AddcitaComponent } from './componentes/cita/add/addcita.component';
 
 
 
 const routes: Routes = [
 {path:'cita', component:CitaComponent},
+{path:'addcita', component:AddcitaComponent},
 {path:'home', component:HomeComponent},
 {path:'inventario', component:InventarioComponent},
 {path:'servicios', component:ServiciosComponent},

@@ -1,6 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Cita } from 'src/app/Modelo/Cita';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Cita, ICita } from 'src/app/Modelo/Cita';
+import { Usuario } from 'src/app/Modelo/Usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +14,34 @@ export class CitaService {
 
   }
 
-  url='http://localhost:8082/cita/';
+  url='http://localhost:8082/';
 
+  private httpOptions = {
+    headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+    }),
+    withCredentials: true
+};
+
+  checkSession(): Observable<any> {
+    console.log("session.service check");
+    return this.http.get<Usuario>(this.url + 'session/' , {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      observe: 'response',
+      responseType: 'json',
+      withCredentials: true
+    }).pipe(
+        //tap((u: any) => console.log("session.service check HTTP request executed", u)),            
+        catchError(err => {
+          //  console.log('session.service: caught error and rethrowing', err);
+            return throwError(err);
+        })
+    )
+}
   getCitas(){
-    return this.http.get<Cita[]>(this.url + 'all', {
+    return this.http.get<Cita[]>(this.url + 'cita/all', {
       //SUPER NECESARIO PARA QUE FUNCIONE EL LOGIN
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -23,8 +50,8 @@ export class CitaService {
       //SUPER NECESARIO PARA QUE FUNCIONE EL LOGIN
     });
   }
-  addCita(cita:Cita){
-    return this.http.post<Cita>(this.url, cita, {
+  addCita(cita:ICita){
+    return this.http.post<ICita>("http://localhost:8082/cita/", cita, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
@@ -33,7 +60,7 @@ export class CitaService {
   }
 
   getCitaId(id:number) {
-    return this.http.get<Cita>(this.url + id, {
+    return this.http.get<Cita>(this.url + "cita/" + id, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
@@ -42,7 +69,7 @@ export class CitaService {
   }
 
   updateCita(cita:Cita){
-    return this.http.put<Cita>(this.url + cita.id, cita, {
+    return this.http.put<Cita>(this.url + "cita/" + cita.id, cita, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
@@ -51,7 +78,7 @@ export class CitaService {
   }
 
   deleteCita(cita:Cita){
-    return this.http.delete<Cita>(this.url + cita.id, {
+    return this.http.delete<Cita>(this.url + "cita/" + cita.id, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {HelperService} from './session/helper.service'
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +24,9 @@ import { SessionResolver } from './resolve/session.resolve';
 import { SessionService } from './session/service/session.service';
 import { AddinventarioComponent } from './componentes/inventario/add/addinventario.component';
 import { EditComponent } from './componentes/inventario/edit/edit.component';
+import { AddcitaComponent } from './componentes/cita/add/addcita.component';
+import { RegisterComponent } from './componentes/usuario/register/register.component';
+
 
 
 @NgModule({
@@ -41,6 +45,8 @@ import { EditComponent } from './componentes/inventario/edit/edit.component';
     LogoutComponent,
     AddinventarioComponent,
     EditComponent,
+    AddcitaComponent,
+    RegisterComponent,
   
   ],
   imports: [
@@ -51,7 +57,7 @@ import { EditComponent } from './componentes/inventario/edit/edit.component';
     ReactiveFormsModule,
     NgxPaginationModule,
   ],
-  providers: [SessionResolver, SessionService,],
+  providers: [SessionResolver, SessionService, HelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

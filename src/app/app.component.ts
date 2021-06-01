@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { IUsuario, Usuario } from './Modelo/Usuario';
 import { SessionService } from './session/service/session.service';
 

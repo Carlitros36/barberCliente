@@ -51,7 +51,9 @@ export class SessionService {
         }
 
     logout(): Observable<any> {
+        localStorage.clear();
         return this.http.delete(this.url, this.httpOptions).pipe(retry(1), catchError(this.handleError));
+        
     }
 
     check(): Observable<any> {

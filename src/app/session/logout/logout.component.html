@@ -1,5 +1,7 @@
 <div class="container">
-    <h1>Actualmente está logueado al sistema como {{ sesion.login }} {{sesion.apellido1}} <button class="btn btn-danger" (click)="closeSession()">Cerrar sesión</button></h1> 
-    
+    <h1 class="titulo-logout">Actualmente está logueado al sistema como {{ sesion.login }} {{sesion.apellido1}}</h1>
+        <div style="text-align: center;
+        padding-top: 5%;">
+            <button class="btn btn-danger boton-logout" (click)="closeSession()">Cerrar sesión</button>
+        </div>
 </div>
-    

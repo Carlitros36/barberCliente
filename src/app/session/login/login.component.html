@@ -1,10 +1,6 @@
-<div class="container">
-    <div class="card-header text-center">
-        <h1>INICIAR SESIÓN</h1>
-    </div>
-</div>
 
 
+<h1 style="text-align: center; padding: 2%;">INICIAR SESIÓN</h1>
 <form [formGroup]="formularioLogin" (ngSubmit)="onSubmit()" novalidate class="centrar">
     <label>Usuario</label>
     <input autofocus [class.is-invalid]="formularioLogin.get('login')!.touched && formularioLogin.get('login')!.invalid"
@@ -25,5 +21,5 @@
         <div [hidden]="!formularioLogin.get('password')!.errors!.minlength"> La longitud mínima es 6 </div>
     </div>
     <br />
-    <button class="btn btn-info" type="submit">Iniciar sesion</button>
+    <button class="btn btn-success boton-login" type="submit">Iniciar sesion</button>
 </form>

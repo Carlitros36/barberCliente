@@ -1,0 +1,11 @@
+.boton-logout{
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.titulo-logout{
+    text-align: center;
+    padding-top: 5%;
+    text-transform: uppercase;
+    font-size: 36px;
+}

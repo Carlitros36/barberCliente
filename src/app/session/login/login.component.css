@@ -4,3 +4,9 @@
     align-items: center;
     flex-direction: column;
 }
+.boton-login{
+    background-color: green;
+}
+.boton-login:hover{
+    background-color: #12b912;
+}

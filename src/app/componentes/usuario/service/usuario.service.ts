@@ -24,6 +24,29 @@ export class UsuarioService {
       //SUPER NECESARIO PARA QUE FUNCIONE EL LOGIN
     });
   }
+
+  getUsuariosCita(){
+    return this.http.get<Usuario[]>(this.url + 'allCitas', {
+      //SUPER NECESARIO PARA QUE FUNCIONE EL LOGIN
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      withCredentials: true
+      //SUPER NECESARIO PARA QUE FUNCIONE EL LOGIN
+    });
+  }
+
+  getUsuario(id:any){
+    return this.http.get<Usuario[]>(this.url + id, {
+      //SUPER NECESARIO PARA QUE FUNCIONE EL LOGIN
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      withCredentials: true
+      //SUPER NECESARIO PARA QUE FUNCIONE EL LOGIN
+    });
+  }
+
 register(usuario:Usuario){
     return this.http.post<Usuario>(this.url + 'register', usuario, {
       //SUPER NECESARIO PARA QUE FUNCIONE EL LOGIN

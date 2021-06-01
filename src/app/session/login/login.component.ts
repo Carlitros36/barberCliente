@@ -6,6 +6,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { IUsuario } from 'src/app/Modelo/Usuario';
 import { ILogin } from 'src/app/Modelo/Login';
+import { HelperService } from '../helper.service';
 
 //import { DialogsService } from '../../service/dialogs.service';
 
@@ -24,7 +25,10 @@ export class LoginComponent implements OnInit {
 
   oUsuarioSession: IUsuario;
 
+  message: any;
+  editMessage: boolean = true;
   constructor(
+    private helper:HelperService,
     private FormBuilder: FormBuilder,
     // private dialogsService: DialogsService,
     private oRoute: ActivatedRoute,
@@ -35,6 +39,7 @@ export class LoginComponent implements OnInit {
       oRouter.navigate(['/home']);
     } else {
       this.oUsuarioSession = this.oRoute.snapshot.data.message;
+      console.log(this.oUsuarioSession);
     }
 
     //this.loginData = null; //{ user: "", password: "" };
@@ -64,6 +69,7 @@ export class LoginComponent implements OnInit {
     this.oSessionService.login(JSON.stringify(loginData)).subscribe(
       data => {
         this.data = data;
+        this.helper.changeMessage(this.editMessage);
         console.log(data);
         if (this.data != null) {
           this.oRouter.navigate(['/home']);

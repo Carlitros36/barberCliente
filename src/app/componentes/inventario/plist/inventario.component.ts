@@ -10,6 +10,7 @@ import { InventarioService } from '../service/inventario.service';
 })
 export class InventarioComponent implements OnInit {
 
+ 
   inventario:Inventario[];
   public page:number;
   constructor(private oInventarioService:InventarioService, private oRouter:Router) { }

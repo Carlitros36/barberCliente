@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HelperService } from 'src/app/session/helper.service';
 import { SessionService } from '../../session/service/session.service';
+
 
 
 @Component({
@@ -9,11 +11,18 @@ import { SessionService } from '../../session/service/session.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public oSessionService:SessionService) { }
+  message:any;
+  messageUsuario:any;
+  constructor(public oSessionService:SessionService, private helper:HelperService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+
+    this.helper.customMessage.subscribe((msg) => {
+      this.message = msg;
+      //console.log(this.message);
+    });
+    this.helper.customMessageUsuarioID.subscribe((msg) => {
+      this.messageUsuario = msg;
+    })
   }
-
-  
-
 }
