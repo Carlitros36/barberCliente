@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Usuario } from '../../../Modelo/Usuario';
+import { IUsuario, Usuario } from '../../../Modelo/Usuario';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +13,29 @@ export class UsuarioService {
 
    }
 
-  url='http://localhost:8082/usuario/';
+  url='http://localhost:8082/';
+
+  checkSession(): Observable<any> {
+    console.log("session.service check");
+    return this.http.get<Usuario>(this.url + 'session/' , {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      observe: 'response',
+      responseType: 'json',
+      withCredentials: true
+    }).pipe(
+        //tap((u: any) => console.log("session.service check HTTP request executed", u)),            
+        catchError(err => {
+          //  console.log('session.service: caught error and rethrowing', err);
+            return throwError(err);
+        })
+    )
+}
 
 
   getUsuarios(){
-    return this.http.get<Usuario[]>(this.url + 'all', {
+    return this.http.get<Usuario[]>(this.url + 'usuario/all', {
       //SUPER NECESARIO PARA QUE FUNCIONE EL LOGIN
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -26,7 +46,7 @@ export class UsuarioService {
   }
 
   getUsuariosCita(){
-    return this.http.get<Usuario[]>(this.url + 'allCitas', {
+    return this.http.get<Usuario[]>(this.url + 'usuario/allCitas', {
       //SUPER NECESARIO PARA QUE FUNCIONE EL LOGIN
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -37,7 +57,7 @@ export class UsuarioService {
   }
 
   getUsuario(id:any){
-    return this.http.get<Usuario[]>(this.url + id, {
+    return this.http.get<Usuario[]>(this.url + "usuario/" + id, {
       //SUPER NECESARIO PARA QUE FUNCIONE EL LOGIN
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -47,8 +67,8 @@ export class UsuarioService {
     });
   }
 
-register(usuario:Usuario){
-    return this.http.post<Usuario>(this.url + 'register', usuario, {
+register(usuario:IUsuario){
+    return this.http.post<Usuario>(this.url + 'usuario/register', usuario, {
       //SUPER NECESARIO PARA QUE FUNCIONE EL LOGIN
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

@@ -47,6 +47,7 @@ export class AddcitaComponent implements OnInit {
     this.oCitaService.checkSession().subscribe((data) => {
       this.usuarioSesion=data.body;
       console.log(this.usuarioSesion);
+      console.log(this.usuarioSesion.tipousuario)
     })
   //  console.log(this.oUsuarioService.getUsuario(this.usuario.id));
  // this.getUsuarios();

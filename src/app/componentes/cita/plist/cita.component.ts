@@ -13,6 +13,7 @@ export class CitaComponent implements OnInit {
 
   citas:Cita[];
   usuario:Usuario[];
+  usuarioSesion:any;
   public page:number;
   constructor(private oCitaService:CitaService, private oRouter:Router) { }
 
@@ -23,6 +24,11 @@ this.oCitaService.getCitas().subscribe(data =>{
     })
     console.log(this.citas);
     console.log(this.usuario);
+    this.oCitaService.checkSession().subscribe((data) => {
+      this.usuarioSesion=data.body;
+      console.log(this.usuarioSesion);
+      console.log(this.usuarioSesion.tipousuario)
+    })
   }
 
 crearCita(usuario){

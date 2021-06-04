@@ -1,1 +1,36 @@
-<p>register works!</p>
+<div class="container col-md-8">
+        <h1>Registrarse</h1>
+        <form (ngSubmit)="registerUser()" name="formulario" role="form" [formGroup]="formulario">
+          <div class="col-md-6">
+          <div class="form-group">
+            <label for="">NOMBRE:</label>
+            <input formControlName="nombre" name="nombre" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">PRIMER APELLIDO:</label>
+            <input formControlName="apellido1" name="apellido1" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">SEGUNDO APELLIDO:</label>
+            <input formControlName="apellido2" name="apellido2" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="">NOMBRE DE USUARIO:</label>
+            <input formControlName="login" name="login" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">CONTRASEÑA:</label>
+            <input formControlName="password" name="password" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">CORREO ELECTRÓNICO:</label>
+            <input formControlName="email" name="email" type="email" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-8 boton-registro">
+          <button type="submit" class="btn">CONFIRMAR REGISTRO</button>
+        </div>
+        </form>
+  </div>

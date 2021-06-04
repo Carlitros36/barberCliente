@@ -1,7 +1,6 @@
 h1{
     text-align: center;
     color: #27357e;
-    margin-bottom: 20px;
 }
 .body{
     display: flex;
@@ -16,20 +15,12 @@ h1{
     
 }
 .table{
-    margin-bottom: 10px!important;
+    margin-bottom: 0!important;
 }
 tr{
     height: 55px;
 }
-th{
-    color: white;
-    margin-bottom: 10px;
-    font-size: 18px;
-}
 td{
     color: white;
     margin-bottom: 10px!important;
-}
-.paginacion{
-    color: white;
 }

@@ -1,23 +1,19 @@
 <div class="container">
-    <div class="card">
-        <div class="card-header text-center">
-            <h3>Servicios Realizados</h3> 
-        </div>
+            <h1><strong>SERVICIOS REALIZADOS</strong></h1> 
         <div class="body">
             <table class="table table-hover text-center">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>FECHA CITA</th>
+                        <th>CLIENTE</th>
                         <th>SERVICIO</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let servicioRealizado of serviciosRealizados | paginate: { itemsPerPage: 5, currentPage: page }" class="text-center">
-                        <td>{{servicioRealizado.id}}</td>
                         <td>{{servicioRealizado.cita.fecha}}</td>
+                        <td>{{servicioRealizado.cita.usuario.nombre}} {{servicioRealizado.cita.usuario.apellido1}}</td>
                         <td>{{servicioRealizado.servicio.nombre}}</td>
-
                     </tr>
                 </tbody>
             </table>
@@ -25,7 +21,7 @@
             (pageChange)="page = $event"
             previousLabel="Anterior"
             nextLabel="Siguiente"
+            class="paginacion"
             ></pagination-controls>
-        </div>
     </div>
 </div>

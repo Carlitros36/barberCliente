@@ -4,7 +4,7 @@ import { SessionService } from '../service/session.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 
-import { IUsuario } from 'src/app/Modelo/Usuario';
+import { IUsuario, Usuario } from 'src/app/Modelo/Usuario';
 import { ILogin } from 'src/app/Modelo/Login';
 import { HelperService } from '../helper.service';
 
@@ -23,10 +23,14 @@ export class LoginComponent implements OnInit {
   public dataCheck: any;
   stock = "hola mundo";
 
-  oUsuarioSession: IUsuario;
-
+  oUsuarioSession:any;
+  
   message: any;
   editMessage: boolean = true;
+  
+  messageTipoUsu: any;
+  editMessageTipoUsu: number = 1;
+
   constructor(
     private helper:HelperService,
     private FormBuilder: FormBuilder,
@@ -39,7 +43,7 @@ export class LoginComponent implements OnInit {
       oRouter.navigate(['/home']);
     } else {
       this.oUsuarioSession = this.oRoute.snapshot.data.message;
-      console.log(this.oUsuarioSession);
+      console.log("Esto es oUsuarioSession" + this.oUsuarioSession);
     }
 
     //this.loginData = null; //{ user: "", password: "" };
@@ -69,6 +73,11 @@ export class LoginComponent implements OnInit {
     this.oSessionService.login(JSON.stringify(loginData)).subscribe(
       data => {
         this.data = data;
+        this.oUsuarioSession = data;
+        console.log(this.oUsuarioSession);
+        console.log(this.oUsuarioSession.tipousuario);
+        this.editMessageTipoUsu = this.oUsuarioSession.tipousuario.id;
+        this.helper.changeUsuarioID(this.editMessageTipoUsu);
         this.helper.changeMessage(this.editMessage);
         console.log(data);
         if (this.data != null) {
@@ -78,7 +87,9 @@ export class LoginComponent implements OnInit {
         }
       }
     );
+      
     return false;
   }
+  
 
 }

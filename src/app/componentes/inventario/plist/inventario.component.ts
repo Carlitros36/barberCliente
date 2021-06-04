@@ -10,7 +10,7 @@ import { InventarioService } from '../service/inventario.service';
 })
 export class InventarioComponent implements OnInit {
 
- 
+  usuarioSesion:any;
   inventario:Inventario[];
   public page:number;
   constructor(private oInventarioService:InventarioService, private oRouter:Router) { }
@@ -19,7 +19,7 @@ export class InventarioComponent implements OnInit {
     this.oInventarioService.getInventario().subscribe(data =>{
       this.inventario = data;
     })
-  }
+}
 
   Editar(inventario:Inventario){
     localStorage.setItem("id",inventario.id.toString());

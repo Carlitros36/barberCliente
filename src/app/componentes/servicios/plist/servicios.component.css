@@ -1,0 +1,32 @@
+h1{
+    text-align: center;
+    color: #27357e;
+    margin-bottom: 20px;
+}
+.body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid #0e35f5;
+    border-radius: 8px;
+    width: 100%;
+    background-color: #27357e;
+    box-shadow: grey 2px 2px 13px 1px;
+    
+}
+.table{
+    margin-bottom: 0px!important;
+}
+tr{
+    height: 55px;
+}
+th{
+    color: white;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+td{
+    color: white;
+    margin-bottom: 10px!important;
+}

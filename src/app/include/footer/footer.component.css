@@ -1,0 +1,10 @@
+.footer{
+    background-color: #27357e!important;
+    padding: 0!important;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+span{
+    color: white!important;
+}

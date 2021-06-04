@@ -7,7 +7,6 @@
             <table class="table table-hover text-center">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>NOMBRE</th>
                         <th>EXISTENCIAS</th>
                         <th>ACCIONES</th>
@@ -15,7 +14,6 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let material of inventario | paginate: { itemsPerPage: 5, currentPage: page }" class="text-center">
-                        <td>{{material.id}}</td>
                         <td>{{material.nombre}}</td>
                         <td>{{material.existencias}}</td>
                         <td>

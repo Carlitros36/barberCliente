@@ -26,6 +26,7 @@ import { AddinventarioComponent } from './componentes/inventario/add/addinventar
 import { EditComponent } from './componentes/inventario/edit/edit.component';
 import { AddcitaComponent } from './componentes/cita/add/addcita.component';
 import { RegisterComponent } from './componentes/usuario/register/register.component';
+import { PerfilComponent } from './componentes/usuario/perfil/perfil.component';
 
 
 
@@ -47,6 +48,7 @@ import { RegisterComponent } from './componentes/usuario/register/register.compo
     EditComponent,
     AddcitaComponent,
     RegisterComponent,
+    PerfilComponent,
   
   ],
   imports: [

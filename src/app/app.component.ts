@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+   
   }
 
   onCheck(checkData: any) {

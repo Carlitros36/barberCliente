@@ -12,7 +12,6 @@ import { IUsuario, Usuario } from 'src/app/Modelo/Usuario';
 
 export class SessionService {
 
-
     constructor(private http: HttpClient, private router: Router) { }
 
     url = 'http://localhost:8082/session/';
@@ -55,6 +54,26 @@ export class SessionService {
         return this.http.delete(this.url, this.httpOptions).pipe(retry(1), catchError(this.handleError));
         
     }
+
+    checkSession(): Observable<any> {
+        console.log("session.service check");
+        return this.http.get<Usuario>(this.url, {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json'
+          }),
+          observe: 'response',
+          responseType: 'json',
+          withCredentials: true
+        }).pipe(
+            //tap((u: any) => console.log("session.service check HTTP request executed", u)),            
+            catchError(err => {
+              //  console.log('session.service: caught error and rethrowing', err);
+                return throwError(err);
+            })
+        )
+    }
+  
+
 
     check(): Observable<any> {
         console.log("session.service check");

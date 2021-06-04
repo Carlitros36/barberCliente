@@ -1,25 +1,26 @@
 
 
 <h1 style="text-align: center; padding: 2%;">INICIAR SESIÓN</h1>
+<div class="container">
 <form [formGroup]="formularioLogin" (ngSubmit)="onSubmit()" novalidate class="centrar">
-    <label>Usuario</label>
+    <label style="padding-top:10%;">NOMBRE DE USUARIO:</label>
     <input autofocus [class.is-invalid]="formularioLogin.get('login')!.touched && formularioLogin.get('login')!.invalid"
         type="text" formControlName="login">
-    <br />
     <div
         *ngIf="!formularioLogin.get('login')?.valid && (formularioLogin.get('login')?.dirty ||formularioLogin.get('login')?.touched)">
-        <div [hidden]="!formularioLogin.get('login')!.errors!.required"> El nombre de usuario es obligatorio </div>
-        <div [hidden]="!formularioLogin.get('login')!.errors!.minlength"> La longitud mínima es 6 </div>
+        <div [hidden]="!formularioLogin.get('login')!.errors!.required" style="color: red;"> El nombre de usuario es obligatorio </div>
+        <div [hidden]="!formularioLogin.get('login')!.errors!.minlength" style="color: red;"> La longitud mínima es 5 </div>
     </div>
-    <label>Password</label>
+    <label>CONTRASEÑA:</label>
     <input [class.is-invalid]="formularioLogin.get('password')!.touched && formularioLogin.get('password')!.invalid"
-        type="password" formControlName="password"><br />
-    <br />
+        type="password" formControlName="password">
     <div
         *ngIf="!formularioLogin.get('password')?.valid && (formularioLogin.get('password')?.dirty ||formularioLogin.get('password')?.touched)">
-        <div [hidden]="!formularioLogin.get('password')!.errors!.required"> El password es obligatorio </div>
-        <div [hidden]="!formularioLogin.get('password')!.errors!.minlength"> La longitud mínima es 6 </div>
+        <div [hidden]="!formularioLogin.get('password')!.errors!.required" style="color: red;"> La contraseña es obligatorio </div>
     </div>
-    <br />
-    <button class="btn btn-success boton-login" type="submit">Iniciar sesion</button>
+    <button class="btn" type="submit">Iniciar sesion</button>
+    <div style="padding-bottom:20px;">
+        <a routerLink="/register">¿Aún no está registrado? Haga click aquí para registrarse</a>
+    </div>
 </form>
+</div>

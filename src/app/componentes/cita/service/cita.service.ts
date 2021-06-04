@@ -51,7 +51,7 @@ export class CitaService {
     });
   }
   addCita(cita:ICita){
-    return this.http.post<ICita>("http://localhost:8082/cita/", cita, {
+    return this.http.post<ICita>(this.url + "cita/", cita, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),

@@ -1,0 +1,13 @@
+.menu-header{
+    margin-bottom: 2%;
+    background-color: #27357e!important;
+}
+a{
+    color: white!important;
+}
+a:hover{
+    color: #0e35f5!important;
+}
+li{
+    border-left: 0.5px solid white;
+}

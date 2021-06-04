@@ -14,17 +14,22 @@ import { SessionResolver } from './resolve/session.resolve';
 import { AddinventarioComponent } from './componentes/inventario/add/addinventario.component';
 import { EditComponent } from './componentes/inventario/edit/edit.component';
 import { AddcitaComponent } from './componentes/cita/add/addcita.component';
+import { RegisterComponent } from './componentes/usuario/register/register.component';
+import { PerfilComponent } from './componentes/usuario/perfil/perfil.component';
 
 
 
 const routes: Routes = [
 {path:'cita', component:CitaComponent},
+{path:'', component:LoginComponent},
 {path:'addcita', component:AddcitaComponent},
 {path:'home', component:HomeComponent},
 {path:'inventario', component:InventarioComponent},
 {path:'servicios', component:ServiciosComponent},
 {path:'serviciosrealizados', component:ServiciosrealizadosComponent},
 {path:'usuario', component:UsuarioComponent},
+{path:'perfil', component:PerfilComponent},
+{path:'register', component:RegisterComponent},
 {path:'tipousuario', component:TipousuarioComponent},
 {path:'login', component:LoginComponent, resolve: { message: SessionResolver} },
 {path:'logout', component:LogoutComponent, resolve: { message: SessionResolver} },
