@@ -1,11 +1,21 @@
 .boton-logout{
-    background-color: black;
-    border: 1px solid black;
-    border-radius: 20px;
+    background-color:#60051c;
+    border-color: white!important;
+    color: white!important;
+}
+.boton-logout:hover{
+    background-color:#b30404;
+
 }
 .titulo-logout{
     text-align: center;
     padding-top: 5%;
     text-transform: uppercase;
     font-size: 36px;
+}
+.usuario{
+    padding-top: 5%;
+    text-transform: uppercase;
+    color: #27357e;
+    text-align: center;
 }

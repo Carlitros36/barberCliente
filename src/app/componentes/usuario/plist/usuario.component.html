@@ -1,9 +1,5 @@
 <div class="container">
-    <div class="card">
-        <div class="card-header text-center">
-            <h3>Usuarios</h3>
-        </div>
-        <div class="body">
+            <h1>USUARIOS</h1>
             <div id="HtmlData">
             <table class="table table-hover text-center">
                 <thead>
@@ -17,7 +13,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let usuario of usuarios | paginate: { itemsPerPage: 10, currentPage: page }" class="text-center">
+                    <tr *ngFor="let usuario of usuarios | paginate: { itemsPerPage: 6, currentPage: page }" class="text-center">
                         <td>{{usuario.id}}</td>
                         <td>{{usuario.nombre}}</td>
                         <td>{{usuario.apellido1}} {{usuario.apellido2}}</td>
@@ -27,12 +23,11 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
             <pagination-controls 
             (pageChange)="page = $event"
             previousLabel="Anterior"
             nextLabel="Siguiente"
+            class="paginacion"
             ></pagination-controls>
         </div>
-    </div>
 </div>

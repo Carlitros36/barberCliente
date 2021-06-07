@@ -1,0 +1,62 @@
+.boton-nuevo{
+    background-color: #27357e!important;
+    border-color: white!important;
+    color: white!important;
+}
+
+.boton-nuevo:hover{
+    background-color: #0e35f5!important;
+}
+.boton-editar{
+    background-color: #2199e8;
+    margin-right: 5px;
+    border-color: white!important;
+    color: white!important;
+}
+.boton-editar:hover{
+    background-color: #1633c6;
+}
+.boton-eliminar{
+    background-color:#510518;
+    margin-left:5px;
+    border-color: white!important;
+    color: white!important;
+}
+.boton-eliminar:hover{
+    background-color:#b30404;
+}
+h1{
+    text-align: center;
+    color: #27357e;
+    margin-bottom: 20px;
+}
+.body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid #0e35f5;
+    border-radius: 8px;
+    width: 100%;
+    background-color: #27357e;
+    box-shadow: grey 2px 2px 13px 1px;
+    
+}
+.table{
+    margin-bottom: 10px!important;
+}
+tr{
+    height: 55px;
+}
+th{
+    color: white;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+td{
+    color: white;
+    margin-bottom: 10px!important;
+}
+.paginacion{
+    color: white;
+}
